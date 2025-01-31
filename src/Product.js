@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { CardBody, CardFooter } from "react-bootstrap";
 
 const Product = () => {
   const [products, getProduct] = useState([]);
@@ -14,19 +15,23 @@ const Product = () => {
 
   const cards = products.map((product) => (
     <div className="col-md-3">
-      <Card style={{ width: "18rem" }}>
+      <Card key={product.id} className="h-100" style={{ width: "18rem" }}>
         <div className="text-center">
           <Card.Img
             variant="top"
             src={product.image}
-            style={{ width: "100px", height: "130px" }}
+            style={{ width: "100px", height: "130px" ,padding:"10px"}}
           />
         </div>
       
         <Card.Body>
           <Card.Title>{product.title}</Card.Title>
           <Card.Text>SR {product.price}</Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Footer style={{background:"white"
+          }}>
+            <Button variant="primary">Add to cart</Button>
+          </Card.Footer>
+        
         </Card.Body>
       </Card>
     </div>
