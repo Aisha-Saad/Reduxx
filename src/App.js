@@ -24,10 +24,14 @@ function App() {
         <Link to="/cart"></Link>
 
         <Routes>
+          <Route path="/" element={<RootLayout />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
+      <div>
       {/* <RouterProvider router={router} /> */}
+
+      </div>
       <Product />
     </div>
   );

@@ -3,6 +3,8 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CardBody, CardFooter } from "react-bootstrap";
+import NavbarPlan from "./NavbarPlan";
+import Cart from "./Cart";
 
 const Product = () => {
   const [products, getProduct] = useState([]);
@@ -12,6 +14,8 @@ const Product = () => {
       .then((data) => data.json())
       .then((result) => getProduct(result));
   }, []);
+
+  
 
   const cards = products.map((product) => (
     <div className="col-md-3">
@@ -38,9 +42,12 @@ const Product = () => {
   ));
   return (
     <>
+    
       <h1>Products</h1>
+    
 
       <div className="row">{cards}</div>
+      
     </>
   );
 };
